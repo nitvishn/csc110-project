@@ -50,11 +50,17 @@ def calculate_sentiment_from_text(text: str) -> float:
 
 
 def calculate_sentiment(post: RedditObject) -> float:
+    """
+    Calculates the sentiment of a reddit object
+    """
     combined = post.text
     return calculate_sentiment_from_text(combined)
 
 
-def posts_in_interval(posts: list[RedditObject], start: datetime.datetime, end: datetime.datetime):
+def posts_in_interval(posts: list[RedditObject], start: datetime.datetime, end: datetime.datetime) -> list[RedditObject]:
+    """
+    Returns the reddit posts in the given time interval
+    """
     return [post for post in posts if start <= post.created_time <= end]
 
 
@@ -67,12 +73,17 @@ def determine_post_topic(post: RedditObject, threshold: float = 0.5) ->  list[st
     return [topic for topic in TOPICS if calculate_relation(post, topic) >= threshold]
 
 
-def filter_posts_by_topic(posts, topic):
+def filter_posts_by_topic(posts: list[RedditObject], topic: str) -> list[RedditObject]:
+    """
+    Filters a list of RedditObjects by the given topic
+    """
     return [post for post in posts if calculate_relation(post, topic) == 1]
 
 
 def calculate_topic_popularity(posts, topic) -> float:
-
+    """
+    Calculates the sum total of popularity across different 
+    """
     return sum(calculate_relation(post, topic) for post in posts)
 
 

@@ -1,7 +1,5 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import computations
-import json
 
 
 def plot_frequencies(words: list[str], frequencies: list[int], max_words: int = 50):
