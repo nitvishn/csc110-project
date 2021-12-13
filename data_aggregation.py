@@ -39,7 +39,10 @@ def load_posts(filename: str) -> list[RedditObject]:
             posts.append(RedditObject(clean_title(post['title']), post['score'], post['num_comments'], datetime.datetime.fromtimestamp(post['created_utc'])))
     return posts
 
-def load_covid_data(filename):
+def load_covid_data(filename: str) :
+    """
+    Loads in the covid data and returns
+    """
     with open(filename, 'r') as file:
         data = json.load(file)['OWID_WRL']
         return data['data']
