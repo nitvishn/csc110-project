@@ -1,12 +1,11 @@
 from computations import calculate_average_valence, calculate_popularity, calculate_sentiment, calculate_topic_popularity, get_time_array, posts_in_interval, filter_posts_by_topic
-from data_aggregation import load_posts, RedditObject
+from data_aggregation import load_posts, RedditObject, load_covid_data, new_cases_at_times, new_cases_in_interval
 from plotting import plot_frequency_time, plot_overall_valence_histogram, plot_sentiments_popularity, plot_popularities, plot_valence_time
 from typing import Callable
 from constants import REDDIT_DATA_FILE, COVID_DATA_FILE
 import json
 import datetime
 
-from process_cases import load_covid_data, new_cases_at_times, new_cases_in_interval
 from constants import TOPICS
 
 
@@ -86,9 +85,10 @@ def most_negative_posts():
 # run_frequency_time()
 # run_popularity_vs_negatively_charged()
 # overall_valence_histogram()
-run_topics_vs_time(['covid', 'vaccine'])
-run_topics_vs_time(['politics', 'technology', 'aliens'])
-overall_valence_histogram()
-run_valence_over_time()
-run_frequency_over_time()
-run_popularity_vs_negatively_charged()
+if __name__ == "main":
+    run_topics_vs_time(['covid', 'vaccine'])
+    run_topics_vs_time(['politics', 'technology', 'aliens'])
+    overall_valence_histogram()
+    run_valence_over_time()
+    run_frequency_over_time()
+    run_popularity_vs_negatively_charged()

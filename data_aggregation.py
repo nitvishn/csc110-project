@@ -64,6 +64,17 @@ def scrape_reddit_data():
         time.sleep(1)
     return posts
 
+def load_covid_data(filename):
+    with open(filename, 'r') as file:
+        data = json.load(file)['OWID_WRL']
+        return data['data']
+
+def new_cases_in_interval(case_data: dict[str, Any], start: datetime.datetime, end: datetime.datetime) -> int:
+    return sum([case['new_cases'] for case in case_data if start <= datetime.datetime.strptime(case['date'], "%Y-%m-%d") <= end])
+
+def new_cases_at_times(case_data, times, resolution):
+    return [new_cases_in_interval(case_data, time, time + resolution) for time in times]
+
 
 if __name__ == "__main__":
     data = load_posts('data/pushshift-reddit-extracted.json')
