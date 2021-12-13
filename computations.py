@@ -8,7 +8,6 @@ from joblib import Memory
 memory = Memory("cachedir")
 
 from nltk.sentiment import SentimentIntensityAnalyzer
-from textblob import TextBlob
 
 from flair.models import TextClassifier
 from flair.data import Sentence
@@ -50,11 +49,6 @@ def calculate_sentiment_from_text(text: str) -> float:
     }
     score = sentence.labels[0].score - 0.5
     return multipliers[sentence.labels[0].value] * score
-
-    # TextBlob
-    polarity = TextBlob(text).sentiment.polarity
-    print(f"{combined}: {polarity}")
-    return polarity
 
 def calculate_sentiment(post: RedditObject) -> float:
     combined = post.text

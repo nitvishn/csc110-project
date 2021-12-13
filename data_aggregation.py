@@ -64,7 +64,6 @@ def scrape_reddit_data():
         time.sleep(1)
     return posts
 
-# scrape_reddit_data()
 
 if __name__ == "__main__":
     data = load_posts('data/pushshift-reddit-extracted.json')

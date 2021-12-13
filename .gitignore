@@ -11,3 +11,4 @@
 cachedir
 osrsbox
 __pycache__
+venv/
