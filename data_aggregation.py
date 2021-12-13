@@ -52,8 +52,8 @@ def load_covid_data(filename: str) -> list[tuple[datetime.datetime, int]]:
     with open(filename, 'r') as file:
         data = json.load(file)['OWID_WRL']
         case_data = []
-        for entry in data:
-            case_data.append((datetime.datetime.strptime(entry['date'], "%Y-%m-%d")), entry['new_cases'])
+        for entry in data['data']:
+            case_data.append((datetime.datetime.strptime(entry['date'], "%Y-%m-%d"), entry['new_cases']))
         return case_data
 
 

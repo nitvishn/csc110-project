@@ -80,10 +80,7 @@ def most_positive_posts() -> None:
         print(sentiment_tuple[-x][1].text)
 
 
-# run_frequency_time()
-# run_popularity_vs_negatively_charged()
-# overall_valence_histogram()
-if __name__ == "main":
+if __name__ == "__main__":
     run_topics_vs_time(['covid', 'vaccine'])
     run_topics_vs_time(['politics', 'technology', 'aliens'])
     overall_valence_histogram()
