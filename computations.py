@@ -87,8 +87,8 @@ def get_time_array(start: datetime.date, end: datetime.date, resolution: datetim
     return times
 
 
-def new_cases_in_interval(case_data: dict[str, Any], start: datetime.datetime, end: datetime.datetime) -> int:
-    return sum([case['new_cases'] for case in case_data if start <= datetime.datetime.strptime(case['date'], "%Y-%m-%d") <= end])
+def new_cases_in_interval(case_data: list[tuple[datetime.datetime, int]], start: datetime.datetime, end: datetime.datetime) -> int:
+    return sum([case[1] for case in case_data if start <= case[0] <= end])
 
 
 def new_cases_at_times(case_data, times, resolution):

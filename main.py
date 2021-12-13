@@ -1,4 +1,4 @@
-from computations import calculate_average_valence, calculate_popularity, calculate_sentiment, calculate_topic_popularity, get_time_array, posts_in_interval, filter_posts_by_topic, new_cases_at_times, new_cases_in_interval
+from computations import calculate_total_valence, calculate_popularity, calculate_sentiment, calculate_topic_popularity, get_time_array, posts_in_interval, filter_posts_by_topic, new_cases_at_times, new_cases_in_interval
 from data_aggregation import load_posts, RedditObject, load_covid_data
 from plotting import plot_frequency_time, plot_overall_valence_histogram, plot_sentiments_popularity, plot_popularities, plot_valence_time
 from typing import Callable
@@ -37,7 +37,7 @@ def run_valence_over_time():
     cases = new_cases_at_times(case_data, timesteps, resolution)
     for step in timesteps:
         in_interval = posts_in_interval(posts, step, step + resolution)
-        post_valences.append(calculate_average_valence(in_interval))
+        post_valences.append(calculate_total_valence(in_interval))
     plot_valence_time(post_valences, cases, timesteps, "figures/valence_over_time.png")
 
 

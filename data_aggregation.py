@@ -47,7 +47,7 @@ def load_posts(filename: str) -> list[RedditObject]:
     return posts
 
 
-def load_covid_data(filename):
+def load_covid_data(filename: str) -> list[tuple[datetime.datetime, int]]:
     """
     Loads the COVID-19 data in the format specified by the Our World In Data dataset. 
 
@@ -55,7 +55,10 @@ def load_covid_data(filename):
     """
     with open(filename, 'r') as file:
         data = json.load(file)['OWID_WRL']
-        return data['data']
+        case_data = []
+        for entry in data:
+            case_data.append((datetime.datetime.strptime(entry['date'], "%Y-%m-%d")), entry['new_cases'])
+        return case_data
 
 
 if __name__ == "__main__":
