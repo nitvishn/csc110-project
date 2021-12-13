@@ -14,7 +14,7 @@ def run_popularity_vs_negatively_charged():
     posts = load_posts(REDDIT_DATA_FILE)
     popularities = [calculate_popularity(post) for post in posts]
     sentiments = [calculate_sentiment(post) for post in posts]
-    plot_sentiments_popularity(sentiments, popularities)
+    plot_sentiments_popularity(sentiments, popularities, 'figures/sentiments_popularity.png')
 
 
 def run_frequency_over_time():
