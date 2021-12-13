@@ -46,6 +46,7 @@ def load_posts(filename: str) -> list[RedditObject]:
             posts.append(RedditObject(clean_title(post['title']), post['score'], post['num_comments'], datetime.datetime.fromtimestamp(post['created_utc'])))
     return posts
 
+
 def load_covid_data(filename):
     """
     Loads the COVID-19 data in the format specified by the Our World In Data dataset. 
