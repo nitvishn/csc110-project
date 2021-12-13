@@ -1,11 +1,7 @@
 import json
-from typing import Any
 import datetime
 from dataclasses import dataclass
 import string
-from constants import KEYWORDS
-import requests
-import time
 
 @dataclass
 class RedditObject(object):

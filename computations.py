@@ -1,4 +1,3 @@
-from typing import Text
 from data_aggregation import RedditObject
 import datetime
 from constants import TOPICS, KEYWORDS

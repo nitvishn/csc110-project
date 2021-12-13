@@ -5,8 +5,6 @@ from typing import Callable
 from constants import REDDIT_DATA_FILE, COVID_DATA_FILE
 import datetime
 
-from constants import TOPICS
-
 
 def run_popularity_vs_negatively_charged() -> None:
     posts = load_posts(REDDIT_DATA_FILE)
@@ -65,6 +63,7 @@ def run_topics_vs_time(topics: list[str]) -> None:
     cases = new_cases_at_times(case_data, times, resolution)
     plot_popularities(times, cases, topic_popularities, f'figures/popularities-{"-".join(topics)}.png')
     
+
 def most_negative_posts() -> None:
     posts = load_posts(REDDIT_DATA_FILE)
     sentiment_tuple = [(calculate_sentiment(post), post) for post in posts]
@@ -72,12 +71,14 @@ def most_negative_posts() -> None:
     for x in range(10):
         print(sentiment_tuple[x][1].text)
 
+
 def most_positive_posts() -> None:
     posts = load_posts(REDDIT_DATA_FILE)
     sentiment_tuple = [(calculate_sentiment(post), post) for post in posts]
     sentiment_tuple = sorted(sentiment_tuple, key= lambda t : t[0])
     for x in range(10):
         print(sentiment_tuple[-x][1].text)
+
 
 # run_frequency_time()
 # run_popularity_vs_negatively_charged()

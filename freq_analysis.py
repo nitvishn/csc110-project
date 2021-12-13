@@ -1,8 +1,5 @@
 from data_aggregation import RedditObject, load_posts
-import matplotlib.pyplot as plt
 from constants import REDDIT_DATA_FILE
-
-from plotting import plot_frequencies
 
 def compute_frequencies(posts: list[RedditObject]):
     freq_dict = {}
