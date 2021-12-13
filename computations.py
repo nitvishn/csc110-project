@@ -79,6 +79,14 @@ def get_time_array(start, end, resolution):
         start += resolution
     return times
 
+
+def new_cases_in_interval(case_data: dict[str, Any], start: datetime.datetime, end: datetime.datetime) -> int:
+    return sum([case['new_cases'] for case in case_data if start <= datetime.datetime.strptime(case['date'], "%Y-%m-%d") <= end])
+
+
+def new_cases_at_times(case_data, times, resolution):
+    return [new_cases_in_interval(case_data, time, time + resolution) for time in times]
+
 def calculate_average_valence(posts):
     return sum(calculate_sentiment(post) for post in posts)
     return 0 if not posts else sum(calculate_sentiment(post) for post in posts)/len(posts)
