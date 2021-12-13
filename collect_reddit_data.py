@@ -3,7 +3,7 @@ import requests
 import json
 import time
 
-def scrape_reddit_data():
+def collect_reddit_data():
     start = datetime.datetime(2010, 12, 1)
     end = datetime.datetime.now()
     resolution = datetime.timedelta(days=5)
@@ -21,11 +21,11 @@ def scrape_reddit_data():
         print(response.url)
         data = json.loads(response.text)['data']
         print(f"Completed {start}.")
-        posts.append(data)
+        posts.extend(data)
         start += resolution
         with open('pushshift-reddit.json', 'w') as f:
             json.dump(posts, f)
         time.sleep(1)
     return posts
 
-scrape_reddit_data()
+collect_reddit_data()
