@@ -22,11 +22,10 @@ def collect_reddit_data():
         data = json.loads(response.text)['data']
         print(f"Completed {start}.")
         posts.extend(data)
-        start += resolution
+        start += resolution + datetime.timedelta(days=1)
         with open('data/pushshift-reddit-extracted.json', 'w') as f:
             json.dump(posts, f)
         time.sleep(1)
-    return posts
 
 collect_reddit_data()
 

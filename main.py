@@ -69,7 +69,7 @@ def most_negative_posts() -> None:
     sentiment_tuple = [(calculate_sentiment(post), post) for post in posts]
     sentiment_tuple = sorted(sentiment_tuple, key= lambda t : t[0])
     for x in range(10):
-        print(sentiment_tuple[x][1].text)
+        print(sentiment_tuple[x][0], sentiment_tuple[x][1].text)
 
 
 def most_positive_posts() -> None:
@@ -81,9 +81,10 @@ def most_positive_posts() -> None:
 
 
 if __name__ == "__main__":
-    run_topics_vs_time(['covid', 'vaccine'])
-    run_topics_vs_time(['politics', 'technology', 'aliens'])
-    overall_valence_histogram()
-    run_valence_over_time()
-    run_frequency_over_time()
-    run_popularity_vs_negatively_charged()
+    # run_topics_vs_time(['covid', 'vaccine'])
+    # run_topics_vs_time(['politics', 'technology', 'aliens'])
+    # overall_valence_histogram()
+    # run_valence_over_time()
+    # run_frequency_over_time()
+    # run_popularity_vs_negatively_charged()
+    most_negative_posts()
