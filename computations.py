@@ -1,15 +1,3 @@
-from data_aggregation import RedditObject
-import datetime
-from constants import TOPICS, KEYWORDS
-from data_aggregation import RedditObject
-
-from joblib import Memory
-memory = Memory("cachedir")
-
-from flair.models import TextClassifier
-from flair.data import Sentence
-classifier = None
-
 """CSC110 Fall 2021 Final Project
 
 Description
@@ -29,6 +17,19 @@ please consult 𝓌𝒽𝑜𝓂𝒷𝓈𝓉#0930 on discord
 
 This file is Copyright (c) 2021 Aaron Ma, Benjamin Liu, Vishnu Nittoor
 """
+
+from data_aggregation import RedditObject
+import datetime
+from constants import TOPICS, KEYWORDS
+from data_aggregation import RedditObject
+
+from joblib import Memory
+memory = Memory("cachedir")
+
+from flair.models import TextClassifier
+from flair.data import Sentence
+classifier = None
+
 
 def calculate_popularity(post: RedditObject) -> int:
     """
