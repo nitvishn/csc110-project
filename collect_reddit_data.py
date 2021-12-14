@@ -29,3 +29,10 @@ def collect_reddit_data():
     return posts
 
 collect_reddit_data()
+
+python_ta.check_all(config={
+    'max-line-length': 100,
+    'extra-imports': ['math', 'python_ta.contracts', 'hypothesis.strategies'],
+    'disable': ['R1705', 'W1114']
+})
+    

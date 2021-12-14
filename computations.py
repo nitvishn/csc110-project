@@ -26,14 +26,14 @@ def calculate_relation(post: RedditObject, topic: str) -> float:
     combined = post.text
     for keyword in KEYWORDS:
         if keyword in combined and topic in KEYWORDS[keyword]:
-            return 1
-    return 0
+            return 1.0
+    return 0.0
 
 
 @memory.cache
 def calculate_sentiment_from_text(text: str) -> float:
     """
-    Returns the calculated sentiment given a string of text. Sentiment detection is done by FLASK
+    Returns the calculated sentiment given a string of text. Sentiment detection is done by Flair. 
     """
     global classifier
     if classifier is None:
