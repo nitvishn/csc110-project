@@ -1,3 +1,22 @@
+"""CSC110 Fall 2021 Final Project
+
+Description
+===============================
+
+This file contains constants accessed by other parts of the project
+
+Copyright and Usage Information
+===============================
+
+This file is provided solely for the personal and private use of TAs 
+marking CSC110 at the University of Toronto St. George campus. All forms of
+distribution of this code, whether as given or with any changes, are
+expressly prohibited. For more information on copyright for our materials,
+please consult 𝓌𝒽𝑜𝓂𝒷𝓈𝓉#0930 on discord
+
+This file is Copyright (c) 2021 Aaron Ma, Benjamin Liu, Vishnu Nittoor
+"""
+
 # a list of topics.
 TOPICS = [
     'covid',
