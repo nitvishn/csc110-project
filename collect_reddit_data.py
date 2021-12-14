@@ -23,7 +23,7 @@ def collect_reddit_data():
         print(f"Completed {start}.")
         posts.extend(data)
         start += resolution
-        with open('pushshift-reddit.json', 'w') as f:
+        with open('data/pushshift-reddit-extracted.json', 'w') as f:
             json.dump(posts, f)
         time.sleep(1)
     return posts
